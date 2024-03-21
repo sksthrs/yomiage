@@ -76,7 +76,38 @@ document.addEventListener('DOMContentLoaded', (_) => {
       }
     }
 
+    utter.addEventListener('end', (_) => {
+      setSpeakingState(false)
+    })
+
+    setSpeakingState(true)
     window.speechSynthesis.speak(utter)
+  }
+
+  /**
+   * 
+   * @param {HTMLElement} el 
+   * @param {string} className 
+   */
+  function setClass(el, setClassName, removeClassName) {
+    if (el.classList.contains(removeClassName)) {
+      el.classList.remove(removeClassName)
+    }
+    if (el.classList.contains(setClassName) !== true) {
+      el.classList.add(setClassName)
+    }
+  }
+
+  /**
+   * @param {boolean} isSpeaking 
+   * @returns {void}
+   */
+  function setSpeakingState(isSpeaking) {
+    if (isSpeaking === true) {
+      setClass(log, 'speaking-now', 'not-speaking')
+    } else if (isSpeaking === false) {
+      setClass(log, 'not-speaking', 'speaking-now')
+    }
   }
 
   // ========== ========== Event handler ========== ==========
@@ -93,6 +124,7 @@ document.addEventListener('DOMContentLoaded', (_) => {
 
   // ========== ========== Procedures ========== ==========
 
+  setSpeakingState(false)
   populateVoices()
   log.focus()
   console.log('prepared')

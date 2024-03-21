@@ -4,21 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yomiage - 日本語読み上げ</title>
-  <link rel="stylesheet" href="style.css?20240321c" />
+  <link rel="stylesheet" href="style.css?20240321e" />
 </head>
 <body>
   <div id="app" class="flex-v">
     <div id="voices-container" class="fixed flex-h">
+      <button id="read-all" class="fixed">読み上げ</button>
       <span class="fixed">声：</span>
       <select id="voices" class="grow"></select>
     </div>
     <div id="log-container" class="grow flex-v">
       <textarea id="log" class="grow" placeholder="ここに読み上げる文章を入れてください"></textarea>
     </div>
-    <div id="control-container" class="fixed flex-h">
-      <button id="read-all">読み上げ</button>
-    </div>
   </div>
-  <script src="app.js?20240321a"></script>
+  <script src="app.js?20240321e"></script>
 </body>
 </html>
